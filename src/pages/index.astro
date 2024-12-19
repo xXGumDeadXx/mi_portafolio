@@ -5,6 +5,7 @@ import Aboutme from '@components/about_me.astro';
 import Projects from '@components/proyectos.astro';
 import Tecology from '@components/tecology.astro';
 import Navbar from '@components/navbar.astro';
+import Footer from '@components/footer.astro';
 
 ---
 
@@ -16,5 +17,13 @@ import Navbar from '@components/navbar.astro';
         <Aboutme/>
         <Projects />
         <Tecology/>
+        <Footer/>
     </main>
 </Layout>
+<style lang="scss">
+    @use 'webcoreui/styles' as *;
+    @include setup((
+    includeResets: false,
+    includeUtilities: false,
+    ))
+</style>
