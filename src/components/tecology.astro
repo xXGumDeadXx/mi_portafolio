@@ -1,0 +1,51 @@
+---
+
+
+const data = [
+    {
+        name: 'HTML',
+        icon: '/lenguaje/html.svg'
+    },
+    {
+        name: 'CSS',
+        icon: '/lenguaje/css.svg'
+    },
+    {
+        name: 'Javascript',
+        icon: '/lenguaje/js.svg'
+    },
+    {
+        name: 'Git',
+        icon: '/utiliti/git.svg'
+    },
+    {
+        name: 'VSCode',
+        icon: '/utiliti/vs.svg'
+    },
+    {
+        name: 'Astro',
+        icon: '/frameworks/astro.svg'
+    },
+    {
+        name: 'Tailwind',
+        icon: '/frameworks/tailwind.svg'
+    }
+
+]
+
+---
+<section class="my-5">
+    <h3 class="font-bold text-xl text-center my-5">Tecnologías que uso</h3>
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-y-8 items-center [&>li>img]:size-12 [&>li>img]:mx-auto [&>li]:size-20 [&>li]:text-center w-8/12 mx-auto" id="container">
+        {
+            data.map((item)=>{
+                return <li class="mx-auto animate-fade_In">
+                    <img src={item.icon} alt={item.name} title={item.name} loading="lazy">
+                    <h3>{item.name}</h3>
+                    </li>
+            })
+        }
+        <a href="/more_tecnology" class="mx-auto btn">Ver mas detalles</a>
+    </ul>
+</section>
+

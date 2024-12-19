@@ -1,0 +1,96 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/navbar.astro";
+import "../styles/app.css";
+import Footer from "@components/footer.astro";
+const lenguaje = {
+    frontend : [
+        {
+            name: 'HTML',
+            icon: '/lenguaje/html.svg'
+        },
+        {
+            name: 'CSS',
+            icon: '/lenguaje/css.svg'
+        },
+        {
+            name: 'Javascript',
+            icon: '/lenguaje/js.svg'
+        },
+        {
+            name: 'Astro',
+            icon: '/frameworks/astro.svg'
+        },
+        {
+            name: 'Tailwind',
+            icon: '/frameworks/tailwind.svg'
+        }
+    ],
+    aprendiendo: [
+        {
+            name: 'NodeJS',
+            src : '/learning/node.svg'
+        },
+        {
+            name: 'Typescript',
+            src : '/learning/typescript.svg'
+        },
+        {
+            name : ' MySQL',
+            src : '/learning/mysql.svg'
+        },
+        {
+            name: 'Express',
+            src : '/learning/express.svg'
+        }
+    ]
+}
+---
+
+<Layout title="Tecnologias">
+    <Nav/>
+    <main class="max-w-screen-lg mx-auto mt-5">
+        <a href="/" class="btn ">Volver al inicio</a>
+        <section class="my-5">
+            <h1 class="text-center text-xl my-5">Lenguajes y framework Frontend</h1>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-y-8 items-center [&>li>img]:size-12 [&>li>img]:mx-auto [&>li]:size-20 [&>li]:text-center w-8/12 mx-auto my-7">
+                {
+                    lenguaje.frontend.map((item)=>{
+                        return <li class="mx-auto animate-fade_In">
+                            <img src={item.icon} alt={item.name} title={item.name} loading="lazy">
+                            <h3>{item.name}</h3>
+                        </li>
+                    })
+                }
+            </ul>
+        </section>
+        <section class="my-10">
+            <h2 class="font-bold my-5 text-center text-xl">Lenguajes que estoy aprendiendo<span id="dots">...</span></h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-y-8 items-center [&>li>img]:size-12 [&>li>img]:mx-auto [&>li]:size-20 [&>li]:text-center w-8/12 mx-auto my-7">
+                {
+                    lenguaje.aprendiendo.map(item =>{
+                        return <li class="mx-auto animate-fade_In"> 
+                            <img src={item.src} alt={item.name} title={item.name} loading="lazy">
+                            <h3>{item.name}</h3>
+                        </li>
+                    })
+                }
+            </ul>
+        </section>
+        <Footer/>
+    </main>
+<Layout/>
+
+<style>
+    #dots{
+        animation: blink 3s steps(4) infinite;
+    }
+    @keyframes blink {
+        from{
+            clip-path: polygon(0 0,0 0, 0 100%, 0 100%);
+        }
+        to{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+</style>

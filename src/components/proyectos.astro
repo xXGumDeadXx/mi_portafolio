@@ -1,0 +1,12 @@
+---
+import Card from '@components/card.astro';
+---
+<section class="w-3/5 mx-auto my-10" id="proyectos">
+    <div class="flex gap-2 items-center my-6">
+        <img src="/src/assets/file.svg" alt="proyectos" class="w-10 h-10">
+        <h2 class="font-bold text-xl">Proyectos</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 [&>article]:animate-fade_In">
+        <Card title = "Todoklick" description="Todoklick es un proyecto que permite a los usuarios crear un todo list con un simple click." codigo='https://github.com/Angel-Linarez/todoklick'/>
+    </div>
+</section>
