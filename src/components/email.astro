@@ -6,7 +6,9 @@ import {Toast} from 'webcoreui/astro'
     <span class="text-sm font-bold">Enviame un mail</span>
     <div class=" flex gap-3 items-center bg-mint px-2 py-1 rounded-lg " id="input-container">
         <input type="email" disabled value="angeljlinarez@gmail.com" id="email">
-        <button title="Copiar Correo" id="btn"><img src="src/assets/clipboard.svg" alt="clipboard" class="w-5 h-5" id="input-icon"></button>
+        <button title="Copiar Correo" id="btn">
+            <img src="/icon/clipboard.svg" alt="clipboard" class="w-5 h-5" id="input-icon">
+        </button>
     </div>
     <Toast title="Copiado!" className="toast" theme="success">
         Se a copiado el correo correctamente!
@@ -15,13 +17,13 @@ import {Toast} from 'webcoreui/astro'
 <script>
     import { toast } from 'webcoreui'
     const email = document.getElementById("email") as HTMLInputElement;
-    const btn = document.getElementById("btn");
+    const btn = document.getElementById("btn") as HTMLButtonElement;
     const img = document.getElementById("input-icon") as HTMLImageElement;
-    const contenedor  = document.getElementById("input-container");
+    const contenedor  = document.getElementById("input-container") as HTMLDivElement;
 
     btn?.addEventListener("click", () => {
         navigator.clipboard.writeText(email.value);
-        img.src = "src/assets/check.svg";
+        img.src = "/icon/check.svg";
         contenedor?.classList.add("ring-2","ring-byzamtium");
         btn.title = "Copiado!";
         toast({
@@ -29,7 +31,7 @@ import {Toast} from 'webcoreui/astro'
             timeout: 3000,
         })
         setTimeout(()=>{
-            img.src = "src/assets/clipboard.svg";
+            img.src = "/icon/clipboard.svg";
         }, 3000)
 
     });
